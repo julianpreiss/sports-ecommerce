@@ -175,8 +175,8 @@ Route::get('carrito/checkout', [MercadoPagoController::class, 'checkout'])
 Route::get('pago/completo', [MercadoPagoController::class, 'pagocompleto'])
     ->name('pago.pagocompleto');
 
-Route::get('mp/pendiente', [MercadoPagoController::class, 'pagopendiente'])
-    ->name('mp.pagopendiente');
+Route::get('pago/pendiente', [MercadoPagoController::class, 'pagopendiente'])
+    ->name('pago.pagopendiente');
 
-Route::get('mp/fallido', [MercadoPagoController::class, 'pagofallido'])
-    ->name('mp.pagofallido');
+Route::get('pago/fallido', [MercadoPagoController::class, 'pagofallido'])
+    ->name('pago.pagofallido');
