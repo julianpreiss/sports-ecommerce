@@ -45,7 +45,7 @@ class MercadoPagoController extends Controller
         $preference->back_urls = [
             'success' => route('pago.pagocompleto'),
             'pending' => route('pago.pagopendiente'),
-            'failure' => route('mp.pagofallido'),
+            'failure' => route('pago.pagofallido'),
         ];
 
         $preference->save();
@@ -55,8 +55,9 @@ class MercadoPagoController extends Controller
 
     public function pagocompleto(Request $request)
     {
-        echo "Transacción exitosa";
-        dd($request);
+
+        return redirect('miperfil')
+        ->with('message_success', 'Tu compra fue exitosa!'); 
     }
 
     public function pagopendiente(Request $request)
