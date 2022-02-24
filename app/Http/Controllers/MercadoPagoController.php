@@ -62,13 +62,14 @@ class MercadoPagoController extends Controller
 
     public function pagopendiente(Request $request)
     {
-        echo "Transacción pendiente";
-        dd($request);
+        return redirect('miperfil')
+        ->with('message_success', 'Proceso exitoso. Pago pendiente de ser realizado'); 
     }
 
     public function pagofallido(Request $request)
     {
-        echo "Transacción fallida";
-        dd($request);
+        return redirect()
+        ->route('carrito.checkout')
+        ->with('message_error', 'Tu compra no pudo ser realizada.'); 
     }
 }
