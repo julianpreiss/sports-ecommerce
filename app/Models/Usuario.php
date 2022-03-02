@@ -38,7 +38,7 @@ class Usuario extends \Illuminate\Foundation\Auth\User
     protected $table = "usuarios";
     protected $primaryKey = "id";
 
-    protected $fillable = ['email', 'password', 'rol_id']; 
+    protected $fillable = ['email', 'password', 'nombre', 'apellido', 'rol_id']; 
 
     public function rol()
     {
@@ -55,7 +55,9 @@ class Usuario extends \Illuminate\Foundation\Auth\User
                 },
                 'required',
             ],
-            'password' => 'required|min:5',          
+            'password' => 'required|min:5',
+            'nombre' => 'required|min:3',     
+            'apellido' => 'required|min:3'     
         ];
     }
 
@@ -65,6 +67,10 @@ class Usuario extends \Illuminate\Foundation\Auth\User
             'email.required' => 'El email es requerido',
             'password.required' => 'El password es requerido',
             'password.min' => 'El password debe tener mínimamente :min caracteres',          
+            'nombre.min' => 'El nombre debe tener mínimamente :min caracteres',          
+            'nombre.required' => 'El nombre es requerido',
+            'apellido.min' => 'El apellido debe tener mínimamente :min caracteres',          
+            'apellido.required' => 'El apellido es requerido',
         ];
     }
 
