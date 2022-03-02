@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
     <title>Sport Cracks :: @yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="{{url ('favicon.ico') }}" />
 	<link rel="stylesheet" type="text/css" href="{{url ('css/bootstrap.css') }}" />
 	<link rel="stylesheet" type="text/css" href="{{url ('css/estilos.css') }}" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -25,10 +25,11 @@
 				@auth
 					<li class="nav-item"><a class="nav-link" href="<?= route('admin.panel');?>">Admin Panel</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= route('carrito.micarrito');?>">Mi Carrito</a></li>
-					<li class="nav-item">
+					<li class="nav-item"><a class="nav-link" href="<?= route('miperfil');?>">Mi Perfil</a></li>
+					<li class="nav-item d-flex justify-content-center">
 					<form action="{{ route('auth.logout') }}" method="post">
 						@csrf
-						<button class="btn nav-link" type="submit">Cerrar Sesión ({{ auth()->user()->email }})</button>
+						<button class="btn nav-link" type="submit">Cerrar Sesión ({{ auth()->user()->nombre }})</button>
 					</form>
 					</li>
 				@elseguest
@@ -113,8 +114,8 @@
 		</div>
 	</footer>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="{{url ('js/jquery.min.js') }}"></script>
+	<script src="{{url ('js/bootstrap.bundle.min.js') }}"></script>
 	@stack('js')
 </body>
 </html>
