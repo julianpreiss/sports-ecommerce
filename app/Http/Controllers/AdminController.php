@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Articulo;
 use App\Models\Usuario;
+use App\Models\Pago;
 use App\Models\Tematica;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,19 @@ class AdminController extends Controller
 
     
     function homeadmin() {
-        return view('admin.panel');
+
+        $pagos = Pago::select('idproducto', 'iduser', 'unidades')->get()->toArray();
+
+        foreach($pagos as &$pago) {
+            $unidades = $pago['unidades'];
+            $pago = Producto::select('precio', 'nombre')->where('id','=',$pago['idproducto'])->first()->toArray();
+            $pago['unidades'] = $unidades;
+            // array_push($productos, $producto);
+        }
+
+        return view('admin.panel', [
+            'pagos' => $pagos
+        ]);
     }
     
     /*
