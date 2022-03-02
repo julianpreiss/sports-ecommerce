@@ -7,6 +7,7 @@ use MercadoPago\Preference;
 use MercadoPago\Item;
 use App\Models\Producto;
 use App\Models\Carrito;
+use App\Models\Pago;
 
 class MercadoPagoController extends Controller
 {
@@ -55,6 +56,19 @@ class MercadoPagoController extends Controller
 
     public function pagocompleto(Request $request)
     {
+        $productoscomprados = Carrito::select(['idusuario', 'idproducto', 'unidades'])->where('idusuario','=',(auth()->user()->id))->get()->toArray();
+        foreach($productoscomprados as &$producto) {
+            $producto['created_at'] = \Carbon\Carbon::now()->toDateTimeString();
+            $producto['updated_at'] = \Carbon\Carbon::now()->toDateTimeString();
+        }
+        Pago::insert($productoscomprados);
+        Carrito::select()->where('idusuario','=',(auth()->user()->id))->delete();
+        // $productoscomprados = Carrito::select()->where('idusuario','=',(auth()->user()->id))->get()->toArray();
+        // Pago::create($productoscomprados);
+        // foreach ($productosencarrito as $producto) {
+        //     $producto->delete();
+        // }
+        // $productosencarrito->delete();
 
         return redirect('miperfil')
         ->with('message_success', 'Tu compra fue exitosa!'); 
