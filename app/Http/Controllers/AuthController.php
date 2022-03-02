@@ -30,7 +30,7 @@ class AuthController extends Controller
 
             return redirect()
                 ->route('home')
-                ->with('message_success', 'Bienvenido/a a nuestra web, <b>' . $user->email . '</b>');
+                ->with('message_success', 'Bienvenido/a a nuestra web, <b>' . $user->nombre . '</b>');
         }
     
         public function logout()
@@ -57,6 +57,8 @@ class AuthController extends Controller
             $usuario = Usuario::create([
                 'email' => $input['email'], 
                 'password' => bcrypt($input['password']), 
+                'nombre' => $input['nombre'], 
+                'apellido' => $input['apellido'], 
                 'rol_id'=>2
             ]);
 
