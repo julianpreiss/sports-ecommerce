@@ -15,17 +15,28 @@ class AdminController extends Controller
     
     function homeadmin() {
 
-        $pagos = Pago::select('idproducto', 'iduser', 'unidades')->get()->toArray();
+        $pagos = Pago::select('idproducto', 'idusuario', 'unidades')->get()->toArray();
+
+        $cantidadunidades = 0;
 
         foreach($pagos as &$pago) {
             $unidades = $pago['unidades'];
+            $cantidadunidades = $cantidadunidades + $unidades;
             $pago = Producto::select('precio', 'nombre')->where('id','=',$pago['idproducto'])->first()->toArray();
             $pago['unidades'] = $unidades;
-            // array_push($productos, $producto);
         }
 
+        $pagosidproductosarray = Pago::select('idproducto')->pluck('idproducto')->toArray();
+        $values = array_count_values($pagosidproductosarray);
+        arsort($values);
+        $populares = array_slice(array_keys($values), 0, 5, true);
+        $top = $populares[0];
+        $popular = Producto::select('nombre')->where('id','=', $top)->get()->pluck('nombre')->toArray();
+
         return view('admin.panel', [
-            'pagos' => $pagos
+            'pagos' => $pagos,
+            'popular' => $popular,
+            'cantidadunidades' => $cantidadunidades,
         ]);
     }
     
