@@ -49,5 +49,35 @@
 			<li class="list-group-item">Productos mas popular: <span class="font-weight-bold">{{ $popular[0] }}</span></li>
 		</ul>
 	</section>
+
+	<section class="text-center offset-md-1 col-md-10 container mt-5">
+		<div class="row">
+			<h2>Compras en la web</h2>
+			<div class="col-12">    
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Producto</th>
+							<th>Precio</th>
+							<th>Unidades</th>
+						</tr>
+					</thead>
+					<tbody><?php 
+						$total = 0;
+						foreach($pagos as $pago) {
+						$total = $total + $pago['precio']*$pago['unidades']
+						?>
+						<tr>
+							<td>{{ $pago['nombre'] }}</td>
+							<td>{{ $pago['precio'] }}</td>
+							<td>{{ $pago['unidades'] }}</td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	
     
 @endsection
