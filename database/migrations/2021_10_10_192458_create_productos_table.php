@@ -19,7 +19,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre', 100);
             $table->string('marca', 100);
             $table->string('deporte', 100);
-            $table->integer('precio');
+            $table->decimal('precio', 7, 2);
             $table->string('imagen', 100);
             $table->string('descripcionimg', 100);
         });
