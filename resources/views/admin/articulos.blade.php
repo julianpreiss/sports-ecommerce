@@ -37,12 +37,31 @@
 				@endif</td>
                 <td>
                     <a class="btn btn-primary m-1" href="{{ route('admin.detallesarticulo', ['id' => $articulo->id]) }}" aria-label="Ver detalles de {{ $articulo->titulo }}">Ver</a>
+
                     <a class="btn btn-warning m-1" href="{{ route('admin.editararticuloForm', ['id' => $articulo->id]) }}" aria-label="Editar {{ $articulo->titulo }}">Editar</a>
-					<form action="{{ route('admin.eliminararticulo', ['id' => $articulo->id]) }}" method="post">
-						@csrf
-						@method('DELETE')
-						<button type="submit" class="btn btn-danger m-1">Eliminar</button>
-					</form>
+
+                    <a class="btn btn-danger m-1 text-white" aria-label="Eliminar {{ $articulo->titulo }}" data-toggle="modal" data-target="#deleteModal{{ $articulo->id }}">Eliminar</a>
+
+					<div class="modal fade" id="deleteModal{{ $articulo->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $articulo->id }}" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+						  	<div class="modal-content">
+								<div class="modal-header">
+							  		<div class="modal-title" id="deleteModalLabel{{ $articulo->id }}">Estás seguro que deseas eliminar este artículo?</div>
+							  		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+							  		</button>
+								</div>
+								<div class="modal-body">
+									<form action="{{ route('admin.eliminararticulo', ['id' => $articulo->id]) }}" method="post">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="btn btn-danger m-1">Eliminar</button>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									</form>
+								</div>
+						  	</div>
+						</div>
+					</div>
                 </td>
 			</tr>
 	@endforeach
