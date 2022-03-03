@@ -50,6 +50,33 @@ class PagosSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
 
+        DB::table('pagos')->insert([
+                'id' => 5,
+                'idusuario' => 3,
+                'idproducto' => 1,
+                'unidades' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
+        DB::table('pagos')->insert([
+                'id' => 6,
+                'idusuario' => 4,
+                'idproducto' => 1,
+                'unidades' => 4,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
+        DB::table('pagos')->insert([
+                'id' => 7,
+                'idusuario' => 2,
+                'idproducto' => 4,
+                'unidades' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
         
     }
 }
