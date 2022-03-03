@@ -6,7 +6,7 @@
 @section('content')
 	<section class="container">
 		<h2>Bienvenido al panel de administración</h2>
-		<p>Desde este lugar podrás ver, editar y crear la información de los productos, los usuarios</p>
+		<p>Desde este lugar podrás ver, editar y crear la información de los productos, los artículos y los usuarios</p>
 	
 	<div class="row">
 		<div class="card col-md-4">
@@ -34,6 +34,20 @@
 		</div>
 	</div>
 
+	</section>
+	<section class="container mt-5">
+		<?php
+		$total = 0;
+		foreach($pagos as $pago) {
+			$total = $total + $pago['precio']*$pago['unidades'];
+		};
+		?>
+		<h2>Estadísticas</h2>
+		<ul class="list-group">
+			<li class="list-group-item">Total de ventas histórico: $ <span class="font-weight-bold">{{ $total }}</span></li>
+			<li class="list-group-item">Cantidad total de productos vendidos: <span class="font-weight-bold">{{ $cantidadunidades }}</span></li>
+			<li class="list-group-item">Productos mas popular: <span class="font-weight-bold">{{ $popular[0] }}</span></li>
+		</ul>
 	</section>
     
 @endsection
