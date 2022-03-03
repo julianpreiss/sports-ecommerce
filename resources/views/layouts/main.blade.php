@@ -88,6 +88,12 @@
 						<a href="<?= route('admin.panel');?>">Admin Panel</a>
 					</li>
 					<?php } ?>
+					<li>
+						<a href="<?= route('carrito.micarrito');?>">Mi Carrito</a>
+					</li>
+					<li>
+						<a href="<?= route('miperfil');?>">Mi Perfil</a>
+					</li>
 				@elseguest
 					<li>
 						<a href="<?= route('auth.loginForm');?>">Login</a>
