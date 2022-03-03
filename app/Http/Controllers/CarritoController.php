@@ -12,6 +12,12 @@ class CarritoController extends Controller
 
     public function add(Request $request, $idproducto) {
 
+        if (auth()->check() && auth()->user()->rol_id === 1){
+            return redirect()
+            ->route('productos')
+            ->with('message_error', 'Los administradores no pueden realizar compras en la web');
+        }
+
         $input['idproducto'] = $idproducto;
         $input['unidades'] = $request -> input('unidades');
         $id = auth()->user()->id;
