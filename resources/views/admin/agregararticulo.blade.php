@@ -36,22 +36,20 @@
                     id="preview" 
                     name="preview" 
                     @error('preview') aria-describedby="error-preview" @enderror
-                >{{ old('preview') }}
-                </textarea>
+                >{{ old('preview') }}</textarea>
                 @error('preview')
                     <div id="error-preview" class="text-danger">Error: {{ $message }}</div>                   
                 @enderror
             </div>
             <div class="form-group">
                 <label for="articulo">Artículo</label>
-                <textarea 
+                <textarea
                     rows="20"
                     class="form-control" 
                     id="articulo"
                     name="articulo"
                     @error('articulo') aria-describedby="error-articulo" @enderror
-                >{{ old('articulo') }}
-                </textarea>
+                >{{ old('articulo') }}</textarea>
                 @error('articulo')
                     <div id="error-articulo" class="text-danger">Error: {{ $message }}</div>                   
                 @enderror

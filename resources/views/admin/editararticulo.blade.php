@@ -37,9 +37,7 @@
                     class="form-control" 
                     id="preview" 
                     name="preview" 
-                >
-                {{ old('preview', $articulo->preview) }}
-                </textarea>
+                >{{ old('preview', $articulo->preview) }}</textarea>
                 @error('preview')
                     <div id="error-preview" class="text-danger">Error: {{ $message }}</div>                   
                 @enderror
@@ -50,9 +48,7 @@
                     class="form-control" 
                     id="articulo"
                     name="articulo" 
-                >
-                {{ old('articulo', $articulo->articulo) }}
-                </textarea>
+                >{{ old('articulo', $articulo->articulo) }}</textarea>
                 @error('articulo')
                     <div id="error-articulo" class="text-danger">Error: {{ $message }}</div>                   
                 @enderror
