@@ -23,7 +23,9 @@
 					<li class="nav-item"><a class="nav-link" href="<?= route('productos');?>">Productos</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= route('blog');?>">Blog</a></li>
 				@auth
+				<?php if (auth()->check() && auth()->user()->rol_id === 1){ ?>
 					<li class="nav-item"><a class="nav-link" href="<?= route('admin.panel');?>">Admin Panel</a></li>
+				<?php } ?>
 					<li class="nav-item"><a class="nav-link" href="<?= route('carrito.micarrito');?>">Mi Carrito</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= route('miperfil');?>">Mi Perfil</a></li>
 					<li class="nav-item d-flex justify-content-center">
@@ -81,9 +83,11 @@
 						<a href="<?= route('blog');?>">Blog</a>
 					</li>
 					@auth
+					<?php if (auth()->check() && auth()->user()->rol_id === 1){ ?>
 					<li>
 						<a href="<?= route('admin.panel');?>">Admin Panel</a>
 					</li>
+					<?php } ?>
 				@elseguest
 					<li>
 						<a href="<?= route('auth.loginForm');?>">Login</a>
