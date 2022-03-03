@@ -43,7 +43,6 @@
 										<select 
 											class="form-control" 
 											id="unidades"
-											type="text" 
 											name="unidades" 
 										>
 											<option>1</option>

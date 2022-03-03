@@ -23,9 +23,7 @@
 				</div>
 			</form>
 			<a class="d-inline-block btn btn-primary" href="{{ route('carrito.checkout') }}">Pagar</a>
-		</div>
-				
-	</div>
+		</div>				
 	</div>
 	<div class="row d-flex justify-content-center">
 		<h3 class="col-12">Productos en carrito</h3>
