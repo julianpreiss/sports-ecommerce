@@ -78,68 +78,68 @@ Route::get('panel', [AdminController::class, 'homeadmin'])
 
 //Productos
 
-Route::get('panelproductos', [AdminController::class, 'productosadmin'])
+Route::get('panel/productos', [AdminController::class, 'productosadmin'])
 ->name('admin.productos')
 ->middleware(['admin']);
 
-Route::get('panelproductos/agregar', [AdminController::class, 'createForm'])
+Route::get('panel/productos/agregar', [AdminController::class, 'createForm'])
 ->name('admin.agregarproductoForm')
 ->middleware(['admin']);
 
-Route::post('panelproductos/agregar', [AdminController::class, 'create'])
+Route::post('panel/productos/agregar', [AdminController::class, 'create'])
 ->name('admin.agregarproducto')
 ->middleware(['admin']);
 
-Route::get('panelproductos/{id}', [AdminController::class, 'show'])
+Route::get('panel/productos/{id}', [AdminController::class, 'show'])
 ->name('admin.detallesproducto')
 ->whereNumber('id')
 ->middleware(['admin']);
 
-Route::delete('panelproductos/{id}/eliminar', [AdminController::class, 'delete'])
+Route::delete('panel/productos/{id}/eliminar', [AdminController::class, 'delete'])
 ->name('admin.eliminarproducto')
 ->whereNumber('id')
 ->middleware(['admin']);
 
-Route::get('panelproductos/{id}/editar', [AdminController::class, 'editForm'])
+Route::get('panel/productos/{id}/editar', [AdminController::class, 'editForm'])
 ->name('admin.editarproductoForm')
 ->whereNumber('id')
 ->middleware(['admin']);
 
-Route::put('panelproductos/{id}/editar', [AdminController::class, 'edit'])
+Route::put('panel/productos/{id}/editar', [AdminController::class, 'edit'])
 ->name('admin.editarproducto')
 ->whereNumber('id')
 ->middleware(['admin']);
 
 //Articulos
 
-Route::get('panelarticulos', [AdminController::class, 'articulosadmin'])
+Route::get('panel/articulos', [AdminController::class, 'articulosadmin'])
 ->name('admin.articulos')
 ->middleware(['admin']);
 
-Route::get('panelarticulos/agregar', [AdminController::class, 'createFormArticulos'])
+Route::get('panel/articulos/agregar', [AdminController::class, 'createFormArticulos'])
 ->name('admin.agregararticuloForm')
 ->middleware(['admin']);
 
-Route::post('panelarticulos/agregar', [AdminController::class, 'createArticulos'])
+Route::post('panel/articulos/agregar', [AdminController::class, 'createArticulos'])
 ->name('admin.agregararticulo')
 ->middleware(['admin']);
 
-Route::get('panelarticulos/{id}', [AdminController::class, 'showArticulos'])
+Route::get('panel/articulos/{id}', [AdminController::class, 'showArticulos'])
 ->name('admin.detallesarticulo')
 ->whereNumber('id')
 ->middleware(['admin']);
 
-Route::delete('panelarticulos/{id}/eliminar', [AdminController::class, 'deleteArticulos'])
+Route::delete('panel/articulos/{id}/eliminar', [AdminController::class, 'deleteArticulos'])
 ->name('admin.eliminararticulo')
 ->whereNumber('id')
 ->middleware(['admin']);
 
-Route::get('panelarticulos/{id}/editar', [AdminController::class, 'editFormArticulos'])
+Route::get('panel/articulos/{id}/editar', [AdminController::class, 'editFormArticulos'])
 ->name('admin.editararticuloForm')
 ->whereNumber('id')
 ->middleware(['admin']);
 
-Route::put('panelarticulos/{id}/editar', [AdminController::class, 'editArticulos'])
+Route::put('panel/articulos/{id}/editar', [AdminController::class, 'editArticulos'])
 ->name('admin.editararticulo')
 ->whereNumber('id')
 ->middleware(['admin']);
@@ -147,7 +147,7 @@ Route::put('panelarticulos/{id}/editar', [AdminController::class, 'editArticulos
 
 //Usuarios
 
-Route::get('panelusuarios', [AdminController::class, 'usuariosadmin'])
+Route::get('panel/usuarios', [AdminController::class, 'usuariosadmin'])
 ->name('admin.usuarios')
 ->middleware(['admin']);
 
